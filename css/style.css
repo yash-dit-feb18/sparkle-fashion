@@ -15,7 +15,7 @@
     margin: 0;
     width: 100%;
     max-width: 1920px;
-    padding: 0 150px;
+    padding: 0 20px;
 }
 
 /* pencil bar */
@@ -449,11 +449,19 @@ nav ul a:hover {
     padding: 18px;
 }
 
+.desktop-view {
+    display: none;
+}
+
 /****************media quriy*******************/
 
 @media only screen and (min-width: 1024px) {
     .container {
         padding: 0 50px;
+    }
+
+    .desktop-view {
+        display: block;
     }
 
     .pencil {
