@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div>
+        <!-- desktop view -->
         <div class="desktop-view">
             <!-- header section -->
             <div class="header-main">
@@ -98,20 +99,75 @@
                 </div>
             </div>
         </div>
+        <!-- mobile view -->
         <div class="mobile-view">
+            <div class="mobile-head-main">
+                <div class="container">
+                    <div class="mobile-head">
+                        <!-- hamburger button -->
+                        <div class="mobile-button">
+                            <i class="fa-solid fa-bars hamburger"></i>
+                            <i class="fa-solid fa-xmark cross"></i>
+                        </div>
+                        <div class="mobile-logo">
+                            <h1>Sparkle Fashion</h1>
+                        </div>
+                        <div class="cart">
+                            <img src="./img/Cart.png" alt="cart">
+                            <span class="tooltip">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-content">
+                    <!-- mobile view search -->
+                    <div class="header-search">
+                        <form action="#" class="header-form">
+                            <input type="search" name="search" id="search"
+                                placeholder="Search For Product Categories Brands Etc..." class="form-input">
 
-        </div>
+                            <input type="submit" value="search" class="form-search">
+                        </form>
+                    </div>
+                    <!-- mobile view navigation -->
+                    <div class="nav-main">
+                        <div class="container">
+                            <nav>
+                                <ul>
+                                    <li class="home"><a href="#">home</a></li>
+                                    <li><a href="#">mens</a></li>
+                                    <li><a href="#">womens</a></li>
+                                    <li><a href="#">kids</a></li>
+                                    <li><a href="#">accessores</a></li>
+                                    <li><a href="#">brands</a></li>
+                                    <li><a href="#">about us</a></li>
+                                    <li><a href="#">shipping returns</a></li>
+                                    <li><a href="#">blog</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <span class="mobile-line"></span>
+                    <div class="mobile-account">
+
+                        <a href="#" class="mobile-sign-in">sign in</a>
+                        <span>or</span>
+                        <a href="#" class="mobile-sign-in">register</a>
+                    </div>
+
+                </div>
+            </div>
     </header>
 
     <!-- hero seaction -->
 
     <div class="slider">
         <div class="hero-main">
+
             <div class="hero-bg-image">
                 <img src="./img/hero_image.png" alt="hero-image">
             </div>
             <div class="hero-description-main">
-
                 <div class="container">
                     <div class="hero-description">
 
@@ -127,9 +183,10 @@
                             curated
                             to
                             redefine your fashion journey.</p>
-
-                        <a href="#" class="Shop-Now">Shop Now</a>
-                        <a href="#" class="Know-more">Know more</a>
+                        <div class="hero-button">
+                            <a href="#" class="Shop-Now">Shop Now</a>
+                            <a href="#" class="Know-more">Know more</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -155,9 +212,10 @@
                             curated
                             to
                             redefine your fashion journey.</p>
-
-                        <a href="#" class="Shop-Now">Shop Now</a>
-                        <a href="#" class="Know-more">Know more</a>
+                        <div class="hero-button">
+                            <a href="#" class="Shop-Now">Shop Now</a>
+                            <a href="#" class="Know-more">Know more</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -183,9 +241,10 @@
                             curated
                             to
                             redefine your fashion journey.</p>
-
-                        <a href="#" class="Shop-Now">Shop Now</a>
-                        <a href="#" class="Know-more">Know more</a>
+                        <div class="hero-button">
+                            <a href="#" class="Shop-Now">Shop Now</a>
+                            <a href="#" class="Know-more">Know more</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -617,6 +676,26 @@
     <script src="https://kit.fontawesome.com/473480df70.js" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
+            // hamburger jquery
+            $(".cross").hide();
+            $(".menu").hide();
+            $(".hamburger").click(function () {
+                $(".mobile-content").slideToggle("fast").css("left,100%", function () {
+
+                    $(".hamburger").hide();
+                    $(".cross").show();
+
+                });
+            });
+
+            $(".cross").click(function () {
+                $(".mobile-content").slideToggle("fast", function () {
+                    $(".cross").hide();
+                    $(".hamburger").show();
+                });
+            });
+
+            // slider for hero section
             $('.slider').slick({
                 dots: true,
                 arrows: true,
@@ -629,9 +708,7 @@
                 prevArrow: '<i class="fa-regular fa-circle-left prev-arrow"></i>',
                 nextArrow: '<i class="fa-regular fa-circle-right next-arrow"></i>'
             });
-        });
 
-        $(document).ready(function () {
             $('.products-items').slick({
                 dots: true,
                 arrows: true,
@@ -642,13 +719,22 @@
                 infinite: false,
                 slidesToScroll: 4,
                 prevArrow: '<i class="fa-regular fa-circle-left prev-arrow"></i>',
-                nextArrow: '<i class="fa-regular fa-circle-right next-arrow"></i>'
+                nextArrow: '<i class="fa-regular fa-circle-right next-arrow"></i>',
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false
+                        }
+                    }
+                ]
             });
         });
 
     </script>
-
-
 </body>
 
 </html>
